@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b108ab8d-fd5f-403c-a8cb-89a613ee7f34" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cicdFlow" doc:id="79e0fa73-680d-46d1-bc72-664c0e5deb80" >
+		<http:listener doc:name="Listener" doc:id="7a88626b-5bae-48dc-874e-7b08d6c55061" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="a546adf5-13d7-4b04-8234-b0fc2cb4c596" message="Test logger!!!!!!!!!!!!!!!!!"/>
+		<set-payload value="new payload " doc:name="Set Payload" doc:id="4f9a0d59-697d-4b22-a6d3-e43f99583082" />
+	</flow>
+</mule>
